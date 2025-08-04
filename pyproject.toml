@@ -1,0 +1,30 @@
+
+
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "efficientGP"
+dynamic = ["version", "dependencies"]
+
+
+
+
+
+[tool.setuptools.dynamic]
+version = {attr = "efficientGP.__version__"}
+dependencies = {file = ["requirements.txt"]}
+
+
+
+
+[tool.setuptools]  # configuration specific to the `setuptools` build backend.
+packages = { find = { where = ["."]} }
+# packages = { find = { where = ["src"]} }
+package-data = {}
+
+# [tool.setuptools]  # configuration specific to the `setuptools` build backend.
+# packages = { find = { where = ["."], include = ["ultralytics", "ultralytics.*"] } }
+# package-data = { "ultralytics" = ["**/*.yaml", "../tests/*.py"], "ultralytics.assets" = ["*.jpg"] }

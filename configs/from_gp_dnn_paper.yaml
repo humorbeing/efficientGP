@@ -1,0 +1,13 @@
+# GP configs
+length_scale: 1                                # Length scale for the GP kernel
+nu: 2.5                                        # Smoothness parameter for the Matern kernel
+noise_level: 1e-7                              # Noise level in the GP model
+noise_level_bounds: (1e-10, 1)                 # Bounds for the noise level
+noise_level_bounds_lower: 1e-10              # Lower bound for the noise level
+noise_level_bounds_upper: 1                # Upper bound for the noise level
+
+alpha: 1e-7                                    # Additive noise for stability in GP
+gp_optimizer: 'fmin_l_bfgs_b'                  # Optimizer for training GP hyperparameters
+gp_optimizer1: fmin_l_bfgs_b                  # Optimizer for training GP hyperparameters
+n_restarts_optimizer: 5                        # Number of restarts for the optimizer
+

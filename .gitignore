@@ -1,0 +1,16 @@
+**/__pycache__/
+**/*.egg-info
+
+# **/flagged/
+# **/.gradio/
+
+**/__CODE_SOUP/
+**/model_weights/
+
+data/Pump_data/impeller
+data/Pump_data/in_out
+# extra_packages/upjab_gradio_simple/upjab_gradio_simple/learn/**/*.png
+# extra_packages/upjab_gradio_simple/upjab_gradio_simple/learn/**/*.webp
+
+# extra_packages/upjab_FirstPackage_OnlyPythonFile
+
