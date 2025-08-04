@@ -2,7 +2,7 @@ import torch
 import numpy as np
 import glob
 
-
+from efficientGP import AP
 from efficientGP.data.load_DOE_module import load_DOE_csv
 
 from efficientGP.data.load_cfdpost_module import load_cfdpost
@@ -17,20 +17,20 @@ from efficientGP.models.model_v01 import PumpModel
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-num_train = 8
-num_val = 2
+num_train = 2
+num_val = 1
 n_padded = 65000  # padding is needed (each mesh has different size)
 EPOCH = 5
 
 
 
 
-DOE_csv_path = 'data/Pump_data/DOE_data.csv'
+DOE_csv_path = AP('data/Pump_data/DOE_data.csv')
 
 metadata_keys, metadata_values = load_DOE_csv(DOE_csv_path)
 
 
-impeller_folder = 'data/toy/data/impeller'
+impeller_folder = AP('data/toy/data/impeller')
 
 file_list = glob.glob(impeller_folder + '/**/*.csv', recursive=True)
 file_list.sort()
@@ -101,6 +101,8 @@ for epoch in range(1, EPOCH + 1):
     x = x_train[idx]
     nt = nt_train[idx]
     n = n_train[idx]
+    if len(n.shape) == 0:
+        n = np.array([n], dtype=np.int32)
     c = c_train[idx]
     ios = io_train[idx]
 

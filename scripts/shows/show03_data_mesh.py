@@ -2,8 +2,8 @@
 
 from efficientGP.data.load_cfdpost_module import load_cfdpost
 from efficientGP.data.data_to_multiblock_module import data_to_multiblock
-
-data_path = 'data/toy/data/impeller/impeller_DP0.csv'
+from efficientGP import AP
+data_path = AP('data/toy/data/impeller/impeller_DP321.csv')
 data = load_cfdpost(data_path)
 print(data['impeller']['key'])
 print(data['impeller']['value'][0])
@@ -13,7 +13,7 @@ print(data['impeller']['face'][0])
 
 
 
-data_path = 'data/toy/data/impeller/impeller_DP0.csv'
+data_path = AP('data/toy/data/impeller/impeller_DP321.csv')
 
 data = load_cfdpost(data_path)
 multiblock = data_to_multiblock(data)
